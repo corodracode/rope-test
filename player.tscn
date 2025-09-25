@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://5qpkqxeg3qdo"]
+
+[ext_resource type="Script" uid="uid://duod34qk63o1e" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://u71dke3qy8gg" path="res://ray_cast_2d.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://b7pfdeyrcy5rd" path="res://rope_visual.gd" id="3_i3pqv"]
+
+[sub_resource type="Curve" id="Curve_4flbx"]
+_data = [Vector2(0, 0.82022476), 0.0, 0.0, 0, 0, Vector2(0.29545456, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.19101131), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 8.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i3pqv"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4flbx")
+accel_curve = SubResource("Curve_4flbx")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_4flbx")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
+script = ExtResource("2_onrkg")
+
+[node name="ReleaseTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="RopeVisual" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_i3pqv")
+player = NodePath("..")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_i3pqv")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cftm1al2pi60b"]
+
+[ext_resource type="PackedScene" uid="uid://5qpkqxeg3qdo" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cebumegn0dqpc" path="res://terrain.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(0, 32)
+color = Color(0.640625, 0.640625, 0.640625, 1)
+polygon = PackedVector2Array(200, 392, 200, 424, 800, 424, 800, 392)
+script = ExtResource("2_0xm2m")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.640625, 0.640625, 0.640625, 1)
+polygon = PackedVector2Array(-8, 616, 1168, 616, 1168, 672, -8, 672)
+script = ExtResource("2_0xm2m")
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(145, 550)
