@@ -15,7 +15,7 @@ func create_segment(pos: Vector2):
 	var rb: RigidBody2D = RigidBody2D.new()
 	var cs: CollisionShape2D = CollisionShape2D.new()
 	var circle := CircleShape2D.new()
-	circle.radius = 2
+	circle.radius = 8
 	cs.shape = circle
 	add_child(rb)
 	rb.add_child(cs)

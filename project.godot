@@ -46,11 +46,6 @@ down={
 ]
 }
 
-[physics]
-
-2d/default_linear_damp=0.0
-2d/default_angular_damp=0.0
-
 [rendering]
 
 environment/defaults/default_clear_color.editor_runtime=Color(0, 0, 0, 1)

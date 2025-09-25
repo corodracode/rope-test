@@ -16,6 +16,7 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_4flbx")
 accel_curve = SubResource("Curve_4flbx")
 
@@ -45,6 +46,7 @@ one_shot = true
 [node name="RopeVisual" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_i3pqv")
 player = NodePath("..")
+segment_count = 10
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
