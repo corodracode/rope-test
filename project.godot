@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Claudio/Godot/Projects/rope-test/Images/mov.avi"
+
 [input]
 
 left={
